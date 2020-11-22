@@ -17,9 +17,7 @@ Instalar las dependencias con npm install
 
 ## Arrancar el servidor
 
-Arrancar el proyecto con 'ng serve -o'
-Ir a http://localhost:4200/ es la url donde se arranca el proyecto.
-
+Arrancar el proyecto con 'ng serve -o'. Se abrirá una nueva ventana con la url donde está levantado el proyecto: http://localhost:4200/
 
 ## Test unitarios
 
