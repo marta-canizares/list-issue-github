@@ -1,0 +1,65 @@
+<div class="row no-gutters mt-4">
+    <div class="col-12">
+
+        <form #form="ngForm">
+            <div class="row form-group">
+
+                <div class="col-md-6 col-12 form-group">
+                    <label for="user">Usuario del repositorio (*)</label>
+                    <input type="text" class="form-control" name="user" id="user"
+                        placeholder="Escribe el nombre de usuario del repositorio" required #user='ngModel'
+                        [(ngModel)]="urlIssue.user">
+                </div>
+
+                <div class="col-md-6 col-12 form-group">
+                    <label for="repo">Nombre del repositorio (*)</label>
+                    <input type="text" class="form-control" name="repo" id="repositorio"
+                        placeholder="Escribe el nombre del repositorio" required [(ngModel)]="urlIssue.repo">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary btn-block mb-4" (click)="getAllIssues()">Buscar
+                        issues</button>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-3"
+                    *ngFor="let issue of arrIssues | paginate:{ itemsPerPage: 10, currentPage: page}">
+                    <h5 class="card-header">Número: {{issue.number}}</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">{{issue.title}}</h5>
+                        <p class="card-text">{{issue.body}}</p>
+                        <a href="{{issue.html_url}}" target="_blank" class="btn btn-primary">Ir a la issue</a>
+                    </div>
+                </div>
+                <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
+                </pagination-controls>
+            </div>
+        </div>
+
+
+        <div class="row no-gutters">
+
+            <div id="alert" class="alert alert-danger mt-4 text-center w-100" *ngIf="!this.isValid" role="alert">
+                <strong>Usuario o repositorio incorrectos</strong>
+            </div>
+
+        </div>
+
+        <div class="row no-gutters">
+
+            <div class="alert alert-danger mt-4 text-center w-100" *ngIf="!this.content" role="alert">
+                <strong>¡No hay issues en este repositorio!</strong>
+            </div>
+
+        </div>
+
+    </div>
+</div>
