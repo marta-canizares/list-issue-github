@@ -1,11 +1,12 @@
-# List Issues Github App
+# Issues Github App
 
 Proyecto generado con Angular 10. 
 Es una aplicación que lista las issues de los repositorios de github. 
 Hay que introducir el usuario y el repositorio.
 
 
-# Instalar el proyecto
+## Comenzando 🚀
+Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
 ## Clonar el proyecto
 
@@ -17,8 +18,11 @@ Instalar las dependencias con npm install
 
 ## Arrancar el servidor
 
-Arrancar el proyecto con 'ng serve -o'. Se abrirá una nueva ventana con la url donde está levantado el proyecto: http://localhost:4200/
+Arrancar el proyecto con 'ng serve -o'.  Se abrirá una nueva ventana con la url donde está levantado el proyecto: http://localhost:4200/
 
-## Test unitarios
+## Autores ✒️
 
-Ejecutar el comando 'ng test' en la terminal donde tengamos el proyecto. Los test unitarios están realizados con Karma
+* **Marta Sánchez Cañizares** 
+
+
+
