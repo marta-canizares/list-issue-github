@@ -1,4 +1,4 @@
-# List Issues App
+# List Issues Github App
 
 Proyecto generado con Angular 10. 
 Es una aplicación que lista las issues de los repositorios de github. 
@@ -9,7 +9,7 @@ Hay que introducir el usuario y el repositorio.
 
 ## Clonar el proyecto
 
-Ejecutar git clone 'https://github.com/marta-canizares/list-issue-github.git'
+Ejecutar git clone 'https://github.com/marta-canizares/list-issue-github-app.git'
 
 ## Instalar dependencias
 
