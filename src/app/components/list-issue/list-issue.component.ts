@@ -41,7 +41,7 @@ export class ListIssueComponent implements OnInit {
 
   }
 
-  //  issue$ = this.issueService.issue$
+
 
   getAllIssues() {
     this.issueService.getIssues((this.urlIssue.user.toLowerCase()), (this.urlIssue.repo.toLowerCase()))
