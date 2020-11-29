@@ -1,6 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ListarIssueService } from '../../services/listar-issue.service';
+import { AppState } from '../../store/reducers/reducer';
+import { ProvideIssues } from '../../store/actions/actions';
+import { Store } from '@ngrx/store';
 
 
 @Component({
@@ -14,16 +17,18 @@ export class ListIssueComponent implements OnInit {
 
   public arrIssues: any;
   public urlIssue: any;
-  public issue: string;
+  public issueHTML: string;
   public page: number;
   public isValid: boolean;
   public content: boolean;
 
 
-
-  constructor(private issueService: ListarIssueService) {
+  constructor(
+    private issueService: ListarIssueService,
+    private store: Store<AppState>) {
+    
     this.arrIssues = [];
-    this.issue = '';
+    this.issueHTML = '';
 
     this.urlIssue = {
       user: '',
@@ -37,14 +42,11 @@ export class ListIssueComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-
   }
 
 
-
   getAllIssues() {
-    this.issueService.getIssues((this.urlIssue.user.toLowerCase()), (this.urlIssue.repo.toLowerCase()))
+  this.issueService.getIssues((this.urlIssue.user.toLowerCase()), (this.urlIssue.repo.toLowerCase()))
       .subscribe(data => {
         if (data.length === 0) {
           this.arrIssues = data;
@@ -69,9 +71,18 @@ export class ListIssueComponent implements OnInit {
       });
   }
 
-
   private recarga(): any {
     location.reload();
   }
 
+
+  getStoreIssues() {
+    this.store.select('listIssue').subscribe(issues => {
+      this.arrIssues = issues;
+    });
+    this.store.dispatch(ProvideIssues({ issue: this.arrIssues }));
+  }
+
 }
+
+

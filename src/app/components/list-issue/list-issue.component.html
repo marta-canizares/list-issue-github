@@ -21,7 +21,8 @@
 
             <div class="row">
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary btn-block mb-4" (click)="getAllIssues()">Buscar
+                    <button type="submit" class="btn btn-primary btn-block mb-4" (click)="getAllIssues()" 
+                    (click)="getStoreIssues()">Buscar
                         issues</button>
                 </div>
             </div>
@@ -31,12 +32,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mt-3"
-                    *ngFor="let issue of arrIssues | paginate:{ itemsPerPage: 10, currentPage: page}">
-                    <h5 class="card-header">Número: {{issue.number}}</h5>
+                    *ngFor="let issueHTML of arrIssues | paginate:{ itemsPerPage: 10, currentPage: page}">
+                    <h5 class="card-header">Número: {{issueHTML.number}}</h5>
                     <div class="card-body">
-                        <h5 class="card-title">{{issue.title}}</h5>
-                        <p class="card-text">{{issue.body}}</p>
-                        <a href="{{issue.html_url}}" target="_blank" class="btn btn-primary">Ir a la issue</a>
+                        <h5 class="card-title">{{issueHTML.title}}</h5>
+                        <p class="card-text">{{issueHTML.body}}</p>
+                        <a href="{{issueHTML.html_url}}" target="_blank" class="btn btn-primary">Ir a la issue</a>
                     </div>
                 </div>
                 <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
